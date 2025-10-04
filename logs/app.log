@@ -1,0 +1,103 @@
+2025-10-04 02:07:54,113 - INFO - TutorAI application starting
+2025-10-04 02:07:54,431 - INFO - Public sharing enabled
+2025-10-04 02:07:54,431 - INFO - Launching on 127.0.0.1:7777 | Details: Share: True, Auth: True, OAuth: False
+2025-10-04 02:10:10,077 - INFO - Code execution started | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: def hello():
+  return hello
+
+print(hello())...
+2025-10-04 02:10:10,078 - INFO - Code execution successful | Details: Question: 1. Hello, Python! Write a Python program that prin... | Output: <function hello at 0x10dab3920>
+...
+2025-10-04 02:10:49,958 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: def hello():
+  return hello
+
+print(hello())... | Output: ### Output
+```
+<function hello at 0x10dab3920>
+
+```...
+2025-10-04 02:10:53,403 - INFO - Help response generated | Details: Response length: 235 characters
+2025-10-04 02:11:24,470 - INFO - Code execution started | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: def hello():
+  return "hello"
+
+print(hello())...
+2025-10-04 02:11:24,470 - INFO - Code execution successful | Details: Question: 1. Hello, Python! Write a Python program that prin... | Output: hello
+...
+2025-10-04 02:11:48,830 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: def hello():
+  return "hello"
+
+print(hello())... | Output: ### Output
+```
+hello
+
+```...
+2025-10-04 02:11:53,448 - INFO - Help response generated | Details: Response length: 363 characters
+2025-10-04 02:13:29,732 - INFO - TutorAI application starting
+2025-10-04 02:13:30,019 - INFO - Public sharing enabled
+2025-10-04 02:13:30,019 - INFO - Launching on 127.0.0.1:7777 | Details: Share: True, Auth: True, OAuth: False
+2025-10-04 02:14:10,756 - INFO - Code execution started | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello...
+2025-10-04 02:14:10,757 - ERROR - Code execution failed | Details: Question: 1. Hello, Python! Write a Python program that prin... | Error: name 'hello' is not defined | Code: hello...
+2025-10-04 02:15:59,285 - INFO - TutorAI application starting
+2025-10-04 02:15:59,531 - INFO - Public sharing enabled
+2025-10-04 02:15:59,531 - INFO - Launching on 127.0.0.1:7777 | Details: Share: True, Auth: True, OAuth: False
+2025-10-04 02:16:31,086 - INFO - Code execution started | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello...
+2025-10-04 02:16:31,086 - ERROR - Code execution failed | Details: Question: 1. Hello, Python! Write a Python program that prin... | Error: name 'hello' is not defined | Code: hello...
+2025-10-04 02:16:33,028 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello... | Output: **Error:** name 'hello' is not defined...
+2025-10-04 02:16:38,275 - INFO - Help response streaming completed
+2025-10-04 02:18:21,672 - INFO - TutorAI application starting
+2025-10-04 02:18:21,946 - INFO - Public sharing enabled
+2025-10-04 02:18:21,946 - INFO - Launching on 127.0.0.1:7777 | Details: Share: True, Auth: True, OAuth: False
+2025-10-04 02:18:59,973 - INFO - Code execution started | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello...
+2025-10-04 02:18:59,973 - ERROR - Code execution failed | Details: Question: 1. Hello, Python! Write a Python program that prin... | Error: name 'hello' is not defined | Code: hello...
+2025-10-04 02:20:10,546 - INFO - TutorAI application starting
+2025-10-04 02:20:10,868 - INFO - Public sharing enabled
+2025-10-04 02:20:10,868 - INFO - Launching on 127.0.0.1:7777 | Details: Share: True, Auth: True, OAuth: False
+2025-10-04 02:20:36,865 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: ... | Output: ...
+2025-10-04 02:20:39,430 - INFO - Help response streaming completed
+2025-10-04 02:21:20,390 - INFO - Code execution started | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello
+...
+2025-10-04 02:21:20,390 - ERROR - Code execution failed | Details: Question: 1. Hello, Python! Write a Python program that prin... | Error: name 'hello' is not defined | Code: hello
+...
+2025-10-04 02:21:23,235 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello
+... | Output: **Error:** name 'hello' is not defined...
+2025-10-04 02:21:25,619 - INFO - Help response streaming completed
+2025-10-04 02:33:15,218 - INFO - TutorAI application starting
+2025-10-04 02:33:15,516 - INFO - Launching on 127.0.0.1:7777 | Details: Share: False, Auth: False, OAuth: False
+2025-10-04 02:39:08,755 - INFO - TutorAI application starting
+2025-10-04 02:39:09,061 - INFO - Launching on 127.0.0.1:7777 | Details: Share: False, Auth: False, OAuth: False
+2025-10-04 02:39:23,325 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: ... | Output: ...
+2025-10-04 02:39:23,325 - INFO - Help response streaming completed
+2025-10-04 02:42:45,073 - INFO - TutorAI application starting
+2025-10-04 02:52:13,028 - INFO - TutorAI application starting
+2025-10-04 02:52:13,326 - INFO - Launching on 127.0.0.1:7777 | Details: Share: False, Auth: False, OAuth: False
+2025-10-04 02:52:29,526 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: ... | Output: ...
+2025-10-04 02:52:29,527 - INFO - Help response streaming completed
+2025-10-04 02:52:32,899 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: ... | Output: ...
+2025-10-04 02:52:32,899 - INFO - Help response streaming completed
+2025-10-04 02:56:27,314 - INFO - TutorAI application starting
+2025-10-04 02:56:27,595 - INFO - Launching on 127.0.0.1:7777 | Details: Share: False, Auth: False, OAuth: False
+2025-10-04 02:56:46,576 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: help... | Output: ...
+2025-10-04 02:56:46,576 - INFO - Help response streaming completed
+2025-10-04 02:58:29,697 - INFO - TutorAI application starting
+2025-10-04 02:58:29,992 - INFO - Launching on 127.0.0.1:7777 | Details: Share: False, Auth: False, OAuth: False
+2025-10-04 02:58:37,321 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: help... | Output: ...
+2025-10-04 02:58:37,322 - INFO - Help response streaming completed
+2025-10-04 02:59:01,780 - INFO - TutorAI application starting
+2025-10-04 02:59:02,037 - INFO - Launching on 127.0.0.1:7777 | Details: Share: False, Auth: False, OAuth: False
+2025-10-04 02:59:06,366 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: help... | Output: ...
+2025-10-04 02:59:06,366 - INFO - Help response streaming completed
+2025-10-04 02:59:14,193 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: ... | Output: ...
+2025-10-04 02:59:14,193 - INFO - Help response streaming completed
+2025-10-04 02:59:26,176 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: ... | Output: ...
+2025-10-04 02:59:26,176 - INFO - Help response streaming completed
+2025-10-04 02:59:35,505 - INFO - TutorAI application starting
+2025-10-04 02:59:35,766 - INFO - Launching on 127.0.0.1:7777 | Details: Share: False, Auth: False, OAuth: False
+2025-10-04 02:59:41,366 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: ... | Output: ...
+2025-10-04 02:59:41,367 - INFO - Help response streaming completed
+2025-10-04 02:59:52,306 - INFO - Code execution started | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello...
+2025-10-04 02:59:52,306 - ERROR - Code execution failed | Details: Question: 1. Hello, Python! Write a Python program that prin... | Error: name 'hello' is not defined | Code: hello...
+2025-10-04 02:59:53,872 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello... | Output: **Error:** name 'hello' is not defined...
+2025-10-04 02:59:53,872 - INFO - Help response streaming completed
+2025-10-04 03:00:37,848 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello... | Output: It looks like you're trying to print "Hello, World!" but the error says `name 'hello' is not defined...
+2025-10-04 03:00:37,848 - INFO - Help response streaming completed
+2025-10-04 03:00:41,657 - INFO - Help request received | Details: Question: 1. Hello, Python! Write a Python program that prin... | Code: hello... | Output: Great job noticing the error! Remember, when you want to print text in Python, you need to tell it t...
+2025-10-04 03:00:41,657 - INFO - Help response streaming completed

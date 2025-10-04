@@ -8,6 +8,8 @@ A self-contained Python learning application designed to teach programming to ch
 - **AI-Powered Help**: Get personalized guidance from GPT-4o-mini
 - **Safe Code Execution**: Run Python code in a secure environment
 - **Kid-Friendly Interface**: Simple, colorful web interface
+- **Google OAuth Security**: Secure authentication for public deployments
+- **Access Key Authentication**: Simple username/password authentication
 - **Self-Contained**: No complex setup required
 
 ## 🚀 Quick Start
@@ -30,25 +32,42 @@ A self-contained Python learning application designed to teach programming to ch
    ```bash
    pip install -r requirements.txt
    ```
-3. **Set up your OpenAI API key:**
+3. **Set up your API keys:**
    ```bash
    # Option A: Create a .env file
    echo "OPENAI_API_KEY=your_key_here" > .env
+   echo "GOOGLE_CLIENT_ID=your_google_client_id" >> .env
+   echo "GOOGLE_CLIENT_SECRET=your_google_client_secret" >> .env
+   echo "GOOGLE_REDIRECT_URI=http://localhost:7860/auth/callback" >> .env
    
-   # Option B: Set environment variable
+   # Option B: Set environment variables
    export OPENAI_API_KEY=your_key_here
+   export GOOGLE_CLIENT_ID=your_google_client_id
+   export GOOGLE_CLIENT_SECRET=your_google_client_secret
+   export GOOGLE_REDIRECT_URI=http://localhost:7860/auth/callback
    ```
 4. **Run the app:**
    ```bash
    python app.py
    ```
 
-## 🔑 Getting an OpenAI API Key
+## 🔑 Getting API Keys
 
+### OpenAI API Key
 1. Visit [OpenAI Platform](https://platform.openai.com/api-keys)
 2. Sign up or log in to your account
 3. Create a new API key
 4. Copy the key and use it in one of the setup methods above
+
+### Google OAuth Credentials (for secure public access)
+1. Follow the detailed guide in [OAUTH_SETUP.md](OAUTH_SETUP.md)
+2. Get your Google Client ID and Secret from Google Cloud Console
+3. Configure the redirect URI for your deployment
+
+### Access Key Authentication (for simple username/password)
+1. Follow the detailed guide in [ACCESS_KEY_SETUP.md](ACCESS_KEY_SETUP.md)
+2. Configure USERS and ACCESS_KEYS environment variables
+3. Use SHA256 hashed passwords for security
 
 ## 📖 Usage
 
@@ -62,6 +81,8 @@ Options:
   --api-key KEY      OpenAI API key (overrides environment variable)
   --share            Enable public sharing (creates public URL)
   --host HOST        Host to bind to (default: 127.0.0.1)
+  --oauth            Enable Google OAuth authentication
+  --auth             Enable access key authentication
   -h, --help         Show help message
 ```
 
@@ -76,6 +97,18 @@ python app.py --port 8080
 
 # Enable public sharing
 python app.py --share
+
+# Enable OAuth authentication
+python app.py --oauth
+
+# Enable access key authentication
+python app.py --auth
+
+# Secure public sharing with OAuth
+python app.py --oauth --share
+
+# Secure public sharing with access keys
+python app.py --auth --share
 
 # Use API key directly
 python app.py --api-key sk-your-key-here
@@ -106,10 +139,14 @@ The app includes 10 progressive Python exercises:
 ```
 tutorai/
 ├── app.py              # Main application
+├── auth.py             # OAuth authentication module
+├── auth_access.py      # Access key authentication module
 ├── requirements.txt    # Python dependencies
 ├── setup.py           # Package setup
 ├── run.sh             # Launch script
 ├── README.md          # This file
+├── OAUTH_SETUP.md     # OAuth setup guide
+├── ACCESS_KEY_SETUP.md # Access key setup guide
 └── .env               # Environment variables (create this)
 ```
 
