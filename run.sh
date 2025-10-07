@@ -41,20 +41,12 @@ if [ -z "$OPENAI_API_KEY" ] && [ ! -f ".env" ]; then
     fi
 fi
 
-# Check for OAuth credentials (optional)
-if [ -f ".env" ] && grep -q "GOOGLE_CLIENT_ID" .env; then
-    echo "🔐 OAuth credentials found - authentication will be enabled"
-else
-    echo "ℹ️  No OAuth credentials found - running without authentication"
-    echo "   (Add GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET to .env for OAuth)"
-fi
 
 # Launch the app
 echo "🚀 Launching TutorAI..."
 echo ""
 echo "💡 Available options:"
 echo "  --share          Create a public URL for sharing"
-echo "  --oauth          Enable Google OAuth authentication"
 echo "  --auth           Enable access key authentication"
 echo "  --port PORT      Run on specific port (default: 7777)"
 echo "  --host HOST      Bind to specific host (default: 127.0.0.1)"

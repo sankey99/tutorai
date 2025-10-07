@@ -8,13 +8,32 @@ A self-contained Python learning application designed to teach programming to ch
 - **AI-Powered Help**: Get personalized guidance from GPT-4o-mini
 - **Safe Code Execution**: Run Python code in a secure environment
 - **Kid-Friendly Interface**: Simple, colorful web interface
-- **Google OAuth Security**: Secure authentication for public deployments
 - **Access Key Authentication**: Simple username/password authentication
 - **Self-Contained**: No complex setup required
 
 ## 🚀 Quick Start
 
-### Option 1: Using the Launch Script (Recommended)
+### Option 1: Docker (Recommended)
+
+1. **Clone or download this repository**
+2. **Set up your API key:**
+   ```bash
+   echo "OPENAI_API_KEY=your_key_here" > .env
+   ```
+3. **Run with Docker:**
+   ```bash
+   # Basic run
+   ./docker-run.sh
+   
+   # With public sharing
+   ./docker-run.sh --share
+   
+   # With authentication
+   ./docker-run.sh --auth --share
+   ```
+4. **Open your browser to http://localhost:7777**
+
+### Option 2: Using the Launch Script
 
 1. **Clone or download this repository**
 2. **Make the script executable and run:**
@@ -25,7 +44,7 @@ A self-contained Python learning application designed to teach programming to ch
 3. **Follow the prompts to set up your OpenAI API key**
 4. **Open your browser to the displayed URL**
 
-### Option 2: Manual Setup
+### Option 3: Manual Setup
 
 1. **Install Python 3.8+** (if not already installed)
 2. **Install dependencies:**
@@ -59,11 +78,6 @@ A self-contained Python learning application designed to teach programming to ch
 3. Create a new API key
 4. Copy the key and use it in one of the setup methods above
 
-### Google OAuth Credentials (for secure public access)
-1. Follow the detailed guide in [OAUTH_SETUP.md](OAUTH_SETUP.md)
-2. Get your Google Client ID and Secret from Google Cloud Console
-3. Configure the redirect URI for your deployment
-
 ### Access Key Authentication (for simple username/password)
 1. Follow the detailed guide in [ACCESS_KEY_SETUP.md](ACCESS_KEY_SETUP.md)
 2. Configure USERS and ACCESS_KEYS environment variables
@@ -81,7 +95,6 @@ Options:
   --api-key KEY      OpenAI API key (overrides environment variable)
   --share            Enable public sharing (creates public URL)
   --host HOST        Host to bind to (default: 127.0.0.1)
-  --oauth            Enable Google OAuth authentication
   --auth             Enable access key authentication
   -h, --help         Show help message
 ```
@@ -98,14 +111,8 @@ python app.py --port 8080
 # Enable public sharing
 python app.py --share
 
-# Enable OAuth authentication
-python app.py --oauth
-
 # Enable access key authentication
 python app.py --auth
-
-# Secure public sharing with OAuth
-python app.py --oauth --share
 
 # Secure public sharing with access keys
 python app.py --auth --share
@@ -132,6 +139,42 @@ The app includes 10 progressive Python exercises:
 9. **First Letter** - String indexing
 10. **Combine Strings** - String concatenation
 
+## 🐳 Docker Deployment
+
+For production deployments or easy setup, use Docker:
+
+### **Quick Docker Start**
+```bash
+# Set up API key
+echo "OPENAI_API_KEY=your_key_here" > .env
+
+# Run with Docker
+./docker-run.sh --share
+```
+
+### **Docker Features**
+- ✅ **File Access**: Reads `questions.txt`, writes to `logs/` directory
+- ✅ **Security**: Non-root user, minimal attack surface
+- ✅ **Persistence**: Logs survive container restarts
+- ✅ **Easy Updates**: Edit `questions.txt` and restart
+
+### **Docker Commands**
+```bash
+# Basic run
+./docker-run.sh
+
+# With authentication and sharing
+./docker-run.sh --auth --share
+
+# Custom port
+./docker-run.sh --port 8080
+
+# View logs
+docker-compose logs -f
+```
+
+For detailed Docker setup, see [DOCKER.md](DOCKER.md).
+
 ## 🛠️ Development
 
 ### Project Structure
@@ -139,14 +182,20 @@ The app includes 10 progressive Python exercises:
 ```
 tutorai/
 ├── app.py              # Main application
-├── auth.py             # OAuth authentication module
-├── auth_access.py      # Access key authentication module
+├── questions.txt       # Tutoring questions (Docker: read-only)
+├── view_logs.py        # Log viewer utility
 ├── requirements.txt    # Python dependencies
-├── setup.py           # Package setup
 ├── run.sh             # Launch script
+├── docker-run.sh      # Docker run script
+├── Dockerfile        # Docker image definition
+├── docker-compose.yml # Docker Compose configuration
+├── .dockerignore      # Docker ignore file
+├── setup.py           # Package setup
 ├── README.md          # This file
-├── OAUTH_SETUP.md     # OAuth setup guide
+├── DOCKER.md          # Docker setup guide
 ├── ACCESS_KEY_SETUP.md # Access key setup guide
+├── LOGGING.md         # Logging system guide
+├── logs/              # Log files (Docker: mounted volume)
 └── .env               # Environment variables (create this)
 ```
 

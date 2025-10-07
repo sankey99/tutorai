@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  tutorai:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - BUILD_DATE=${BUILD_DATE:-$(date -u +'%Y-%m-%dT%H:%M:%SZ')}
+        - ENV_FILE=${ENV_FILE:-.env}
+    ports:
+      - "7777:7777"
+    volumes:
+      # Mount logs directory for persistence
+      - ./logs:/app/logs
+      # Mount questions.txt for easy editing
+      - ./questions.txt:/app/questions.txt:ro
+      # Mount .env file for environment variables
+      - ./.env:/app/.env:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - GRADIO_SERVER_NAME=0.0.0.0
+      - GRADIO_SERVER_PORT=7777
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7777/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - tutorai-network
+
+networks:
+  tutorai-network:
+    driver: bridge

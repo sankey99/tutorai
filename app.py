@@ -20,10 +20,6 @@ import hashlib
 import logging
 import datetime
 import socket
-import requests
-from auth import create_oauth_app
-from auth_access import create_access_key_app
-from gradio_auth import create_auth_interface, create_protected_gradio_app
 
 # Setup logging
 def setup_logging():
@@ -78,14 +74,31 @@ def get_location_from_ip(ip):
     except:
         return 'Unknown Location'
 
+def get_browser_location_from_ip(ip):
+    """Get browser location from IP address (client-side location)."""
+    try:
+        if ip == 'unknown' or ip.startswith('127.') or ip.startswith('192.168.') or ip.startswith('10.'):
+            return 'Local Network'
+        
+        # Use a geolocation service to get browser location
+        response = requests.get(f'http://ip-api.com/json/{ip}', timeout=5)
+        data = response.json()
+        if data['status'] == 'success':
+            return f"{data['city']}, {data['regionName']}, {data['country']}"
+        else:
+            return 'Unknown Browser Location'
+    except:
+        return 'Unknown Browser Location'
+
 def log_access(access_logger, event_type, details, ip=None, location=None):
-    """Log access events."""
+    """Log access events with browser location."""
     if ip is None:
         ip = get_client_ip()
     if location is None:
-        location = get_location_from_ip(ip)
+        # Get browser location instead of server location
+        location = get_browser_location_from_ip(ip)
     
-    log_entry = f"IP: {ip} | Location: {location} | Event: {event_type} | Details: {details}"
+    log_entry = f"IP: {ip} | Browser Location: {location} | Event: {event_type} | Details: {details}"
     access_logger.info(log_entry)
 
 def log_app_event(app_logger, level, message, details=None):
@@ -107,19 +120,36 @@ def log_app_event(app_logger, level, message, details=None):
 # Initialize logging
 access_logger, app_logger = setup_logging()
 
-# Questions for the tutoring session
-questions = [
-    "1. Hello, Python! Write a Python program that prints:\nHello, World!",
-    "2. Introduce Yourself. Create a variable 'name' with your name and print:\nMy name is <your name>",
-    "3. Your Age. Store your age in a variable called 'age' and print:\nI am <age> years old",
-    "4. Adding Numbers. Make two variables, a = 5 and b = 3. Print their sum like this:\nThe sum of 5 and 3 is 8",
-    "5. Counting Fruits. Make a variable 'apples = 4'. Print:\nI have 4 apples",
-    "6. Check Data Types. Create these variables: x = 10, y = 3.14, z = 'Python'. Print the type of each variable using type()",
-    "7. Swap Values. Create two variables: red = 'apple', yellow = 'banana'. Swap their values and print them",
-    "8. Repeat Printing. Print your name 5 times using Python code",
-    "9. First Letter. Make a variable word = 'Python'. Print only the first letter of the word",
-    "10. Combine Strings. Make two variables: first = 'Good', second = 'Morning'. Print them together as:\nGood Morning"
-]
+# Load questions from file
+def load_questions():
+    """Load questions from questions.txt file."""
+    try:
+        with open('questions.txt', 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+            # Split by double newlines to get individual questions
+            questions = [q.strip() for q in content.split('\n\n') if q.strip()]
+            return questions
+    except FileNotFoundError:
+        print("❌ questions.txt not found. Using default questions.")
+        # Fallback to default questions
+        return [
+            "1. Hello, Python! Write a Python program that prints:\nHello, World!",
+            "2. Introduce Yourself. Create a variable 'name' with your name and print:\nMy name is <your name>",
+            "3. Your Age. Store your age in a variable called 'age' and print:\nI am <age> years old",
+            "4. Adding Numbers. Make two variables, a = 5 and b = 3. Print their sum like this:\nThe sum of 5 and 3 is 8",
+            "5. Counting Fruits. Make a variable 'apples = 4'. Print:\nI have 4 apples",
+            "6. Check Data Types. Create these variables: x = 10, y = 3.14, z = 'Python'. Print the type of each variable using type()",
+            "7. Swap Values. Create two variables: red = 'apple', yellow = 'banana'. Swap their values and print them",
+            "8. Repeat Printing. Print your name 5 times using Python code",
+            "9. First Letter. Make a variable word = 'Python'. Print only the first letter of the word",
+            "10. Combine Strings. Make two variables: first = 'Good', second = 'Morning'. Print them together as:\nGood Morning"
+        ]
+    except Exception as e:
+        print(f"❌ Error loading questions: {e}")
+        return ["1. Hello, Python! Write a Python program that prints:\nHello, World!"]
+
+# Load questions from file
+questions = load_questions()
 
 def setup_environment():
     """Load environment variables and validate API keys."""
@@ -132,18 +162,9 @@ def setup_environment():
         print("1. Create a .env file with: OPENAI_API_KEY=your_key_here")
         print("2. Set environment variable: export OPENAI_API_KEY=your_key_here")
         print("3. Pass it as argument: python app.py --api-key your_key_here")
-        return None, None, None
+        return None
     
-    # OAuth credentials (optional)
-    google_client_id = os.getenv('GOOGLE_CLIENT_ID')
-    google_client_secret = os.getenv('GOOGLE_CLIENT_SECRET')
-    redirect_uri = os.getenv('GOOGLE_REDIRECT_URI', 'http://localhost:7777/auth/callback')
-    
-    # Only return OAuth credentials if they exist
-    if google_client_id and google_client_secret:
-        return openai_api_key, google_client_id, google_client_secret, redirect_uri
-    else:
-        return openai_api_key, None, None, None
+    return openai_api_key
 
 def parse_arguments():
     """Parse command line arguments."""
@@ -185,11 +206,6 @@ Examples:
         help='Host to bind to (default: 127.0.0.1)'
     )
     
-    parser.add_argument(
-        '--oauth', 
-        action='store_true', 
-        help='Enable Google OAuth authentication'
-    )
     
     parser.add_argument(
         '--auth', 
@@ -198,18 +214,6 @@ Examples:
     )
     
     return parser.parse_args()
-
-def help_gpt_msg(prompt, openai_client):
-    """Get help message from GPT."""
-    messages = [
-        {"role": "system", "content": "you are an expert python tutor and help kids 10 year old to learn python, and suggest solution based on code and error of code execution"},
-        {"role": "user", "content": prompt}
-    ]
-    completion = openai_client.chat.completions.create(
-        model='gpt-4o-mini',
-        messages=messages,
-    )
-    return completion.choices[0].message.content
 
 def help_gpt(q, code, error):
     """Stream help from GPT."""
@@ -227,6 +231,49 @@ def help_gpt(q, code, error):
         result += chunk.choices[0].delta.content or ""
         yield result
 
+def evaluate_gpt(q, code):
+    """Stream evaluation from GPT for student's code solution."""
+    log_app_event(app_logger, 'INFO', 'evaluate_gpt called', f"Question: {q[:50]}... | Code: {code[:50]}...")
+    messages = [
+        {"role": "system", "content": "you are an expert python tutor and help kids 10 year old to learn python, evaluate solution of q as provided on code, if its about expected output, Say Good Job, otherwise provide hint on what is expected without providing actual solution "},
+        {"role": "user", "content": "question: "+q + " code: "+ code }
+    ]
+    try:
+        stream =OpenAI().chat.completions.create(
+            model='gpt-4o-mini',
+            messages=messages,
+            stream=True
+        )
+        result = ""
+        for chunk in stream:
+            content = chunk.choices[0].delta.content or ""
+            result += content
+            log_app_event(app_logger, 'DEBUG', f'evaluate_gpt chunk: {len(content)} chars')
+            yield result
+        log_app_event(app_logger, 'INFO', 'evaluate_gpt completed', f"Final result length: {len(result)}")
+    except Exception as e:
+        log_app_event(app_logger, 'ERROR', 'evaluate_gpt failed', f"Error: {str(e)}")
+        yield f"AI Evaluation Error: {str(e)}"
+
+def evaluate_gpt_sync(q, code):
+    """Non-streaming evaluation from GPT for Docker environments."""
+    log_app_event(app_logger, 'INFO', 'evaluate_gpt_sync called', f"Question: {q[:50]}... | Code: {code[:50]}...")
+    messages = [
+        {"role": "system", "content": "you are an expert python tutor and help kids 10 year old to learn python, evaluate solution of q as provided on code, if its about expected output, Say Good Job, otherwise provide hint on what is expected without providing actual solution "},
+        {"role": "user", "content": "question: "+q + " code: "+ code }
+    ]
+    try:
+        completion = OpenAI().chat.completions.create(
+            model='gpt-4o-mini',
+            messages=messages
+        )
+        result = completion.choices[0].message.content
+        log_app_event(app_logger, 'INFO', 'evaluate_gpt_sync completed', f"Result length: {len(result)}")
+        return result
+    except Exception as e:
+        log_app_event(app_logger, 'ERROR', 'evaluate_gpt_sync failed', f"Error: {str(e)}")
+        return f"AI Evaluation Error: {str(e)}"
+
 def run_code(idx, code):
     """Safely run learner's code."""
     f = io.StringIO()
@@ -239,21 +286,76 @@ def run_code(idx, code):
     try:
         with contextlib.redirect_stdout(f):
             exec(code, {})  # run code in an empty namespace
-        output = f.getvalue()
-        if not output.strip():
-            output = "_(No output)_"
+        code_output = f.getvalue()
+        
+        if not code_output.strip():
+            code_output = "_(No output)_"
         
         # Log successful execution
         log_app_event(app_logger, 'INFO', 'Code execution successful', 
-                     f"Question: {question[:50]}... | Output: {output[:100]}...")
+                     f"Question: {question[:50]}... | Output: {code_output[:100]}...")
         
-        return f"### Output\n```\n{output}\n```"
+        return f"### Output\n```\n{code_output}\n```"
     except Exception as e:
         # Log execution error
         log_app_event(app_logger, 'ERROR', 'Code execution failed', 
                      f"Question: {question[:50]}... | Error: {str(e)} | Code: {code[:100]}...")
         
         return f"**Error:** {str(e)}"
+
+def run_code_with_evaluation(idx, code, resultop, evaluationop):
+    """Run code and stream evaluation like help_wrapper."""
+    f = io.StringIO()
+    question = questions[idx % len(questions)]
+    
+    # Log code execution attempt
+    log_app_event(app_logger, 'INFO', 'Code execution started', 
+                 f"Question: {question[:50]}... | Code: {code[:100]}...")
+    
+    try:
+        with contextlib.redirect_stdout(f):
+            exec(code, {})  # run code in an empty namespace
+        code_output = f.getvalue()
+        
+        if not code_output.strip():
+            code_output = "_(No output)_"
+        
+        # Log successful execution
+        log_app_event(app_logger, 'INFO', 'Code execution successful', 
+                     f"Question: {question[:50]}... | Output: {code_output[:100]}...")
+        
+        # Build the output progressively
+        base_output = f"### Code Output\n```\n{code_output}\n```\n\n### AI Evaluation\n"
+        yield base_output
+        
+        # Stream the evaluation with Docker fallback
+        log_app_event(app_logger, 'INFO', 'Starting AI evaluation streaming')
+        try:
+            # Try streaming first
+            for chunk in evaluate_gpt(question, code):
+                log_app_event(app_logger, 'DEBUG', f'Evaluation chunk received: {len(chunk)} chars')
+                yield base_output + chunk
+            log_app_event(app_logger, 'INFO', 'AI evaluation streaming completed')
+        except Exception as stream_error:
+            # Fallback to non-streaming for Docker
+            log_app_event(app_logger, 'WARNING', 'Streaming failed, using sync evaluation', 
+                         f"Error: {str(stream_error)}")
+            try:
+                # Use non-streaming evaluation
+                evaluation_result = evaluate_gpt_sync(question, code)
+                yield base_output + evaluation_result
+                log_app_event(app_logger, 'INFO', 'AI evaluation sync completed')
+            except Exception as sync_error:
+                log_app_event(app_logger, 'ERROR', 'Both streaming and sync evaluation failed', 
+                             f"Sync error: {str(sync_error)}")
+                yield base_output + "AI Evaluation unavailable (Docker environment)"
+            
+    except Exception as e:
+        # Log execution error
+        log_app_event(app_logger, 'ERROR', 'Code execution failed', 
+                     f"Question: {question[:50]}... | Error: {str(e)} | Code: {code[:100]}...")
+        
+        yield f"**Error:** {str(e)}"
 
 def next_question(idx):
     """Navigate to next question."""
@@ -279,20 +381,11 @@ def help_wrapper(idx, code, output):
 
     for chunk in help_gpt(q, code, output):
         yield chunk
-    
-    # Log help response completion
-    
-    # return result
 
-def help_wrapper_streaming(idx, code, output):
-    """Streaming version of help_wrapper for Gradio."""
-    q = questions[idx % len(questions)]
-    # This is a generator that yields chunks
-    for chunk in help_gpt(q, code, output):
-        yield chunk
 
 def access_key_auth(username: str, access_key: str) -> bool:
-    """Check if user exists in USERS env variable and access key matches ACCESS_KEYS."""
+    """Check if user exists in USERS env variable and access key matches ACCESS_KEYS.
+    The access key is hashed with SHA256 before comparison."""
     try:
         # Get users and access keys from environment variables
         users_json = os.getenv('USERS', '[]')
@@ -312,12 +405,11 @@ def access_key_auth(username: str, access_key: str) -> bool:
         
         # Check if access key matches (with same index)
         if user_index < len(access_keys):
-            # Hash the provided access key for comparison
-            hashed_key = hashlib.sha256(access_key.encode()).hexdigest()
             stored_key = access_keys[user_index]
             
-            # Compare hashed keys
-            if hashed_key == stored_key:
+            # Hash the access key with SHA256 before comparing
+            hashed_access_key = hashlib.sha256(access_key.encode()).hexdigest()
+            if hashed_access_key.lower() == stored_key.lower():
                 log_access(access_logger, 'AUTH_SUCCESS', f'User authenticated: {username}')
                 return True
             else:
@@ -331,10 +423,22 @@ def access_key_auth(username: str, access_key: str) -> bool:
         log_access(access_logger, 'AUTH_ERROR', f'Authentication error: {str(e)}')
         return False
 
-def create_gradio_app(openai, args, oauth_credentials=None):
+def create_gradio_app(openai, args):
     """Create and launch the Gradio interface."""
     # Create the Gradio interface
-    with gr.Blocks(title="TutorAI - Python Learning Assistant") as demo:
+    with gr.Blocks(title="TutorAI - Python Learning Assistant", css="""
+        .gradio-container {
+            font-family: Arial, sans-serif;
+        }
+        .login-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+    """) as demo:
         gr.Markdown("# 🐍 TutorAI - Your Learning buddy")
         gr.Markdown("Learn Python programming step by step with interactive exercises!")
         
@@ -355,18 +459,25 @@ def create_gradio_app(openai, args, oauth_credentials=None):
         with gr.Row():
             result = gr.Markdown()
 
+        with gr.Row():
+            evaluation = gr.Markdown()
+
         # Navigation
         next_btn.click(fn=next_question, inputs=hidden_idx, outputs=[hidden_idx, question_label])
         prev_btn.click(fn=prev_question, inputs=hidden_idx, outputs=[hidden_idx, question_label])
 
         # Run code
-        run_btn.click(fn=run_code, inputs=[hidden_idx, code_box], outputs=result)
+        run_btn.click(
+            fn=run_code_with_evaluation, 
+            inputs=[hidden_idx, code_box], 
+            outputs=result
+        )
 
         # Help button → streams help from your LLM
         help_btn.click(
             fn=help_wrapper,
             inputs=[hidden_idx, code_box, result],
-            outputs=result,
+            outputs=result
         )
 
     # Launch the app
@@ -377,40 +488,20 @@ def create_gradio_app(openai, args, oauth_credentials=None):
     
     # Log launch configuration
     log_app_event(app_logger, 'INFO', f'Launching on {args.host}:{args.port}', 
-                 f'Share: {args.share}, Auth: {args.auth}, OAuth: {args.oauth}')
+                 f'Share: {args.share}, Auth: {args.auth}')
     
     try:
-        if args.oauth and oauth_credentials:
-            # For OAuth, we'll use a simple username/password approach
-            # since Gradio doesn't support OAuth directly
-            print("🔐 OAuth authentication requested")
-            print("📝 Make sure to configure your Google OAuth credentials in .env file")
-            print("💡 Note: Using access key authentication instead of OAuth")
-            print("   (OAuth requires custom implementation with Flask)")
+        if args.auth:
+            # Use Gradio's built-in authentication
+            print("🔑 Access key authentication enabled")
+            print("📝 Make sure to configure USERS and ACCESS_KEYS in .env file")
+            print("🔒 Using Gradio's built-in authentication system")
             
             # Create authentication function for Gradio
             def gradio_auth(username, password):
                 return access_key_auth(username, password)
             
             print("🚀 Launching with authentication...")
-            demo.launch(
-                server_name=args.host,
-                server_port=args.port,
-                share=args.share,
-                show_error=True,
-                auth=gradio_auth,
-                auth_message="🔐 Please enter your username and access key to access TutorAI"
-            )
-        elif args.auth:
-            # Use Gradio's built-in authentication
-            print("🔑 Access key authentication enabled")
-            print("📝 Make sure to configure USERS and ACCESS_KEYS in .env file")
-            
-            # Create authentication function for Gradio
-            def gradio_auth(username, password):
-                return access_key_auth(username, password)
-            
-            print("🚀 Launching with Gradio authentication...")
             demo.launch(
                 server_name=args.host,
                 server_port=args.port,
@@ -448,16 +539,10 @@ def main():
     if args.api_key:
         os.environ['OPENAI_API_KEY'] = args.api_key
         openai_api_key = args.api_key
-        oauth_credentials = None
     else:
-        env_result = setup_environment()
-        if not env_result or len(env_result) < 1:
+        openai_api_key = setup_environment()
+        if not openai_api_key:
             sys.exit(1)
-        openai_api_key, google_client_id, google_client_secret, redirect_uri = env_result
-        if google_client_id and google_client_secret:
-            oauth_credentials = (google_client_id, google_client_secret, redirect_uri)
-        else:
-            oauth_credentials = None
      # Initialize OpenAI client
     try:
         openai = OpenAI()
@@ -468,7 +553,7 @@ def main():
 
    
     # Create the Gradio interface
-    create_gradio_app(openai, args, oauth_credentials)
+    create_gradio_app(openai, args)
 
 if __name__ == "__main__":
     main()

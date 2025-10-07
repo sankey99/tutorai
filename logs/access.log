@@ -16,3 +16,131 @@
 2025-10-04 02:58:29,912 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
 2025-10-04 02:59:01,962 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
 2025-10-04 02:59:35,694 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-04 07:13:55,005 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-04 07:21:28,999 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-04 07:24:49,238 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: Reyansh
+2025-10-04 07:24:49,528 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: Reyansh
+2025-10-04 07:25:08,789 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: Reyansh
+2025-10-04 07:25:10,514 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:25:48,677 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: reyansh
+2025-10-04 07:25:50,063 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:25:50,300 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:25:50,542 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:25:50,778 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:25:50,992 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:25:51,189 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:25:51,414 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:25:51,663 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:26:47,840 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: Reyansh
+2025-10-04 07:26:49,336 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:26:49,574 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:26:49,859 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:26:50,085 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:26:50,326 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:26:50,555 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Username not found: 
+2025-10-04 07:27:46,184 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-05 05:27:34,627 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-05 05:28:27,752 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-05 05:30:22,842 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-05 05:43:41,880 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-05 06:00:21,055 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-05 06:01:55,181 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-05 13:26:47,566 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-05 13:26:48,680 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-06 03:40:57,797 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 03:41:59,483 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 03:42:49,207 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 03:43:03,407 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-06 03:44:46,522 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 03:45:12,017 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 03:45:23,075 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 03:46:59,789 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 03:47:24,706 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 03:55:55,811 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 03:56:52,100 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 04:00:30,612 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 04:02:10,545 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 04:02:57,232 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 04:22:12,909 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 04:23:09,928 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: reyansh
+2025-10-06 04:23:54,519 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: reyansh
+2025-10-06 04:25:05,874 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: reyansh
+2025-10-06 04:25:20,323 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: reyansh
+2025-10-06 04:25:42,955 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 04:32:11,785 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 04:32:53,813 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 04:35:43,654 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 04:36:14,009 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 04:41:28,883 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 04:42:10,768 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 00:43:59,334 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 00:44:17,842 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 00:48:18,352 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 00:48:52,831 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 00:49:04,505 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 00:52:19,822 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 00:53:16,283 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 00:56:31,687 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 00:57:07,559 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 00:57:18,076 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 00:59:02,797 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: boss
+2025-10-06 01:01:09,215 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 01:01:36,005 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: boss
+2025-10-06 01:04:41,465 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 01:05:34,589 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: boss
+2025-10-06 05:20:25,911 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 05:22:19,263 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: boss
+2025-10-06 05:25:19,838 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-06 05:33:59,388 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 05:34:48,561 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: reyansh
+2025-10-06 05:35:38,194 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-06 01:37:39,492 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 01:38:28,346 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 01:38:54,452 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 01:39:37,028 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 01:40:11,135 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-06 01:42:33,950 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 23:49:15,569 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 23:52:04,213 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 23:55:26,025 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-06 23:55:48,889 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: AUTH_FAILED | Details: Invalid access key for user: reyansh
+2025-10-07 00:01:34,274 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:01:56,539 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 00:10:58,003 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:11:13,502 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:18:39,824 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:20:53,528 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:23:08,440 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 04:27:38,203 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 04:28:17,180 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 04:32:00,277 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 04:32:20,462 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 04:34:03,649 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 04:34:25,177 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 00:38:15,953 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:38:21,420 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:38:40,655 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:39:55,213 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:42:07,452 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:43:33,864 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 00:43:56,880 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 04:44:32,346 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 04:44:59,628 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 04:48:11,812 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 04:48:35,046 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 04:53:35,423 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 04:53:58,796 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 01:03:47,341 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 01:04:27,894 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 01:04:58,827 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 01:06:14,079 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 01:09:20,936 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 05:10:56,394 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 05:11:21,503 - IP: 24.226.99.230 | Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 05:15:23,079 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 05:15:40,858 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: reyansh
+2025-10-07 05:25:12,593 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 05:26:47,100 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 05:27:43,495 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 05:28:07,122 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: APP_START | Details: Application started
+2025-10-07 05:28:42,253 - IP: 24.226.99.230 | Browser Location: Burlington, Ontario, Canada | Event: AUTH_SUCCESS | Details: User authenticated: boss
