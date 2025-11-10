@@ -45,15 +45,6 @@ def load_questions():
         # Fallback to default questions
         return [
             "1. Hello, Python! Write a Python program that prints:\nHello, World!",
-            "2. Introduce Yourself. Create a variable 'name' with your name and print:\nMy name is <your name>",
-            "3. Your Age. Store your age in a variable called 'age' and print:\nI am <age> years old",
-            "4. Adding Numbers. Make two variables, a = 5 and b = 3. Print their sum like this:\nThe sum of 5 and 3 is 8",
-            "5. Counting Fruits. Make a variable 'apples = 4'. Print:\nI have 4 apples",
-            "6. Check Data Types. Create these variables: x = 10, y = 3.14, z = 'Python'. Print the type of each variable using type()",
-            "7. Swap Values. Create two variables: red = 'apple', yellow = 'banana'. Swap their values and print them",
-            "8. Repeat Printing. Print your name 5 times using Python code",
-            "9. First Letter. Make a variable word = 'Python'. Print only the first letter of the word",
-            "10. Combine Strings. Make two variables: first = 'Good', second = 'Morning'. Print them together as:\nGood Morning"
         ]
     except Exception as e:
         print(f"❌ Error loading questions: {e}")
@@ -140,34 +131,34 @@ Examples:
  # Function to update username_state from authenticated session
             # This will be called on page load to get the authenticated username
 
-def run_code(idx, code):
-    """Safely run learner's code."""
-    f = io.StringIO()
-    question = questions[idx % len(questions)]
+# def run_code(idx, code):
+#     """Safely run learner's code."""
+#     f = io.StringIO()
+#     question = questions[idx % len(questions)]
     
-    # Log code execution attempt
-    log_app_event(app_logger, 'INFO', 'Code execution started', 
-                 f"Question: {question[:50]}... | Code: {code[:100]}...")
+#     # Log code execution attempt
+#     log_app_event(app_logger, 'INFO', 'Code execution started', 
+#                  f"Question: {question[:50]}... | Code: {code[:100]}...")
     
-    try:
-        with contextlib.redirect_stdout(f):
-            exec(code, {})  # run code in an empty namespace
-        code_output = f.getvalue()
+#     try:
+#         with contextlib.redirect_stdout(f):
+#             exec(code, {})  # run code in an empty namespace
+#         code_output = f.getvalue()
         
-        if not code_output.strip():
-            code_output = "_(No output)_"
+#         if not code_output.strip():
+#             code_output = "_(No output)_"
         
-        # Log successful execution
-        log_app_event(app_logger, 'INFO', 'Code execution successful', 
-                     f"Question: {question[:50]}... | Output: {code_output[:100]}...")
+#         # Log successful execution
+#         log_app_event(app_logger, 'INFO', 'Code execution successful', 
+#                      f"Question: {question[:50]}... | Output: {code_output[:100]}...")
         
-        return f"### Output\n```\n{code_output}\n```"
-    except Exception as e:
-        # Log execution error
-        log_app_event(app_logger, 'ERROR', 'Code execution failed', 
-                     f"Question: {question[:50]}... | Error: {str(e)} | Code: {code[:100]}...")
+#         return f"### Output\n```\n{code_output}\n```"
+#     except Exception as e:
+#         # Log execution error
+#         log_app_event(app_logger, 'ERROR', 'Code execution failed', 
+#                      f"Question: {question[:50]}... | Error: {str(e)} | Code: {code[:100]}...")
         
-        return f"**Error:** {str(e)}"
+#         return f"**Error:** {str(e)}"
 
 def run_code_with_evaluation(idx, code, username_state, request: gr.Request | None = None):
     """Run code and stream evaluation like help_wrapper."""
@@ -216,7 +207,7 @@ def run_code_with_evaluation(idx, code, username_state, request: gr.Request | No
             try:
                 # Use non-streaming evaluation
                 evaluation_result = evaluate_gpt_sync(question, code, app_logger)
-                yield base_output + evaluation_result, updated_username_state
+                yield base_output + str(evaluation_result), updated_username_state
                 log_app_event(app_logger, 'INFO', 'AI evaluation sync completed', request=None, username=username)
             except Exception as sync_error:
                 log_app_event(app_logger, 'ERROR', 'Both streaming and sync evaluation failed', 
