@@ -53,9 +53,9 @@ EOF
     echo -e "${YELLOW}📝 Please edit .env file with your actual API keys.${NC}"
 fi
 
-# Check if questions.txt exists
-if [ ! -f "questions.txt" ]; then
-    echo -e "${RED}❌ questions.txt not found. Please create it first.${NC}"
+# Check if data/questions.txt exists
+if [ ! -f "data/questions.txt" ]; then
+    echo -e "${RED}❌ data/questions.txt not found. Please create it first.${NC}"
     exit 1
 fi
 
@@ -118,7 +118,8 @@ done
 echo -e "${BLUE}🔨 Building Docker image...${NC}"
 # Set build date for cache busting
 export BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-docker build -t tutorai:latest .
+# Use docker compose to build so it uses the same tag as docker-compose.yml
+$COMPOSE_CMD build
 
 # Stop any existing containers
 echo -e "${YELLOW}🛑 Stopping existing containers...${NC}"
@@ -139,17 +140,31 @@ export TUTORAI_PORT=$PORT
 export TUTORAI_HOST=$HOST
 
 # Create docker-compose override for runtime options
+# Build command array
+CMD_ARRAY=("python" "src/app.py" "--host" "${HOST}" "--port" "${PORT}")
+if [ "$SHARE" = true ]; then
+    CMD_ARRAY+=("--share")
+fi
+if [ "$AUTH" = true ]; then
+    CMD_ARRAY+=("--auth")
+fi
+
+# Convert array to YAML list format
+CMD_STR="["
+for i in "${!CMD_ARRAY[@]}"; do
+    if [ $i -gt 0 ]; then
+        CMD_STR="${CMD_STR}, "
+    fi
+    CMD_STR="${CMD_STR}\"${CMD_ARRAY[$i]}\""
+done
+CMD_STR="${CMD_STR}]"
+
 cat > docker-compose.override.yml << EOF
 version: '3.8'
 
 services:
   tutorai:
-    command: >
-      python app.py
-      --host ${HOST}
-      --port ${PORT}
-      $([ "$SHARE" = true ] && echo "--share")
-      $([ "$AUTH" = true ] && echo "--auth")
+    command: ${CMD_STR}
 EOF
 
 # Start the application
@@ -177,9 +192,9 @@ if docker ps | grep -q tutorai; then
     echo "  View logs:     docker-compose logs -f"
     echo "  Stop app:      docker-compose down"
     echo "  Restart app:   docker-compose restart"
-    echo "  View logs:     ./view_logs.py"
+    echo "  View logs:     python src/view_logs.py"
     echo ""
-    echo -e "${YELLOW}💡 Tip: Edit questions.txt to modify the tutoring questions!${NC}"
+    echo -e "${YELLOW}💡 Tip: Edit data/questions.txt to modify the tutoring questions!${NC}"
 else
     echo -e "${RED}❌ Failed to start TutorAI. Check logs:${NC}"
     $COMPOSE_CMD logs

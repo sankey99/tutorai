@@ -18,11 +18,11 @@ setup(
     description="A Python Learning Assistant for Kids",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    py_modules=["app"],
+    packages=find_packages(),
     install_requires=requirements,
     entry_points={
         "console_scripts": [
-            "tutorai=app:main",
+            "tutorai=src.app:main",
         ],
     },
     classifiers=[
@@ -36,6 +36,6 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
-    python_requires=">=3.8",
+    python_requires=">=3.8,<3.12",
 )
 

@@ -1,0 +1,27 @@
+1. Hello, Python! Write a Python program that prints:
+Hello, World!
+
+2. Introduce Yourself. Create a variable 'name' with your name and print:
+My name is <your name>
+
+3. Your Age. Store your age in a variable called 'age' and print:
+I am <age> years old
+
+4. Adding Numbers. Make two variables, a = 5 and b = 3. Print their sum like this:
+The sum of 5 and 3 is 8
+
+5. Counting Fruits. Make a variable 'apples = 4'. Print:
+I have 4 apples
+
+6. Check Data Types. Create these variables: x = 10, y = 3.14, z = 'Python'. Print the type of each variable using type()
+
+7. Swap Values. Create two variables: red = 'apple', yellow = 'banana'. Swap their values and print them
+
+8. Repeat Printing. Print your name 5 times using Python code
+
+9. First Letter. Make a variable word = 'Python'. Print only the first letter of the word
+
+10. Combine Strings. Make two variables: first = 'Good', second = 'Morning'. Print them together as:
+Good Morning
+
+

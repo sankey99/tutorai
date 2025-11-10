@@ -1,0 +1,52 @@
+1. Ice Cream Time: Make a variable flavor = "chocolate". 
+If flavor is "chocolate", print "Yum! My favorite!"
+Else, print "Maybe next time!"
+
+2. Pet Check: 
+Make a variable pet = "dog"
+If pet is "dog", print "Woof! You have a dog!"
+Else, print "Nice pet!"
+
+3. Homework Done: 
+Make a variable homework_done = True
+If homework_done is True, print "You can go play now!"
+Else, print "Finish your homework first!"
+
+4. Light Switch: 
+Make a variable light_on = False
+If light_on is True, print "The room is bright."
+Else, print "It's dark in here."
+
+5. Cookie Jar: 
+Make a variable cookies = 5
+If cookies is 0, print "No cookies left!"
+Else, print "Yum! Cookies for everyone!"
+
+6. Battery Level:
+Make a variable battery = 15
+If battery is less than 20, print "Low battery! Please charge."
+Else, print "Battery is okay."
+
+7. Weather Watch: 
+Make a variable temperature = 25
+If temperature is less than 10, print "It's freezing!"
+Elif temperature is less than 20, print "It's cool outside."
+Else, print "It's warm today."
+
+8. Grade Checker:
+Make a variable marks = 85
+If marks are 90 or more, print "Excellent!"
+Elif marks are 75 or more, print "Good job!"
+Else, print "Keep practicing!"
+
+9. Game Score:
+Make a variable score = 40
+If score is less than 20, print "Try again!"
+Elif score is less than 50, print "Nice effort!"
+Else, print "You’re a winner!"
+
+10. Space Mission Control:
+Make a variable fuel = 60
+If fuel is less than 30, print "Not enough fuel to launch."
+Elif fuel is less than 70, print "Almost ready for launch!"
+Else, print "Blast off!"

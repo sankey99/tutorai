@@ -13,8 +13,8 @@ services:
     volumes:
       # Mount logs directory for persistence
       - ./logs:/app/logs
-      # Mount questions.txt for easy editing
-      - ./questions.txt:/app/questions.txt:ro
+      # Mount data directory for easy editing
+      - ./data:/app/data:ro
       # Mount .env file for environment variables
       - ./.env:/app/.env:ro
     environment:

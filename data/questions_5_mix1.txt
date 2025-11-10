@@ -1,0 +1,48 @@
+1. Favorite Number: 
+Make a variable called favorite_number and store your favorite number in it.
+Print it and say: "My favorite number is 7" (replace 7 with your number).
+
+2. String Fun:
+Make a variable called word = "Python"
+Print the first letter and the last letter of the word.
+
+3. Add Numbers:
+Make two variables, a = 5 and b = 8.
+Add them and print the result with a message: "The total is 13".
+
+4. Type Checker:
+Make a variable for a number, one for a word, and one for a decimal number.
+Use type() to print what type each one is.
+
+5. Fruit Basket (List): 
+Make a list called fruits = ["apple", "banana", "cherry"]
+Print the second fruit in the list.
+Then add "orange" to the list and print the full list.
+
+6. Favorite Colors (Tuple):
+Make a tuple called colors = ("red", "blue", "green")
+Print the first color.
+Then try to change one color and see what happens (explain why).
+
+7. Unique Animals (Set):
+Make a set called animals = {"cat", "dog", "cat", "bird"}
+Print the set and notice how it keeps only unique items.
+
+8. Student Grades (Dictionary):
+Make a dictionary called grades = {"Alice": 85, "Bob": 90, "Charlie": 78}
+Print Bob’s grade.
+Then add a new student called "Daisy" with a grade of 92.
+
+9. Total Fruits:
+Use a list fruits = ["apple", "banana", "orange", "apple"]
+Count how many apples are in the list using .count() and print the number.
+
+10. Mixing It Up:
+Make a dictionary called person with keys: "name", "age", and "hobbies".
+Example:
+person = {
+    "name": "Alex",
+    "age": 10,
+    "hobbies": ["drawing", "cycling"]
+}
+Print Alex’s second hobby.

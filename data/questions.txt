@@ -1,0 +1,62 @@
+1. Count to Favorite: 
+Make a variable favorite = 5
+Use a for loop to print numbers from 1 to 10.
+If the number equals your favorite, print "That’s my favorite!" next to it.
+
+2. Even Fruit Numbers: 
+Make a list numbers = [2, 5, 8, 11, 14]
+Loop through each number.
+If it’s even, print "Even fruit!"
+Else, print "Odd fruit!"
+
+3. Long or Short Names: 
+Make a list names = ["Amy", "Jonathan", "Leo", "Sophie"]
+For each name, if it has more than 4 letters, print "Long name!"
+Else, print "Short name!"
+
+4. Counting Apples: 
+Make a list fruits = ["apple", "banana", "apple", "orange", "apple"]
+Use a loop to count how many apples are there (don’t use .count()).
+Print "There are 3 apples!" at the end.
+
+5. Lucky Numbers:
+Make a list numbers = [3, 7, 9, 13, 21]
+For each number:
+If it’s less than 10, print "Small number"
+Else if it’s equal to 13, print "Lucky 13!"
+Else, print "Big number"
+
+6. Favorite Animals: 
+Make a set animals = {"cat", "dog", "bird", "cat"}
+Use a for loop to print each unique animal with the message: "I like cats!" (change the name each time).
+
+7. Grade Checker: 
+Make a dictionary grades = {"Alice": 85, "Bob": 60, "Charlie": 95}
+Loop through each student.
+If grade >= 90, print "Excellent!"
+Else if grade >= 70, print "Good job!"
+Else, print "Keep trying!"
+
+8. Count Down: 
+Start with count = 5
+Use a while loop to count down to 0.
+Each time, print the number.
+When finished, print "Lift off!"
+
+9. Shopping Basket: 
+Make a list items = ["milk", "bread", "candy", "eggs"]
+Use a for loop.
+If the item is "candy", print "Sweet treat!"
+Else, print "Regular item."
+
+10. Word Builder: 
+Make a variable word = "PYTHON"
+Use a for loop to go through each letter.
+Make a new string by joining letters one by one.
+Print the word as it builds up, like:
+P
+PY
+PYT
+PYTH
+PYTHO
+PYTHON

@@ -1,0 +1,60 @@
+1. Count and Cheer: 
+Use a for loop to count from 1 to 10.
+For each number, print the number and then print "Yay!" after it.
+
+2. Odd or Even: 
+Use a for loop from 1 to 10.
+If the number is even, print "Even number!"
+Else, print "Odd number!"
+
+3. Numbers and Messages: 
+Use a for loop from 1 to 15.
+If the number is 5, print "Halfway there!"
+If it’s 10, print "Almost done!"
+Else, just print the number.
+
+4. Secret Code Unlock
+secret_word = "banana"
+Make a list of guesses: ["apple", "grape", "banana", "orange"]
+Use a for loop to go through each guess.
+If the guess equals the secret word, print "Access Granted!" and stop checking more guesses.
+Else, print "Wrong word!" for that guess.
+
+5. Star Counter: 
+Use a while loop with stars = 0
+Each time, print "You found a star!"
+If stars reach 3, print "Halfway!"
+If stars reach 5, print "Level Complete!"
+Add 1 to stars each loop.
+
+6. Multiples of 3: 
+Use a for loop from 1 to 20.
+If a number is divisible by 3, print "Fizz!"
+Else, print the number.
+
+7. Temperature Checker: 
+Use a list of numbers like [15, 25, 35, 5, 20].
+For each number:
+If it’s below 10, print "Too cold!"
+Else if it’s above 30, print "Too hot!"
+Else, print "Just right!"
+
+8. Favorite Numbers: 
+Make a list: [2, 5, 7, 10, 12]
+Use a for loop.
+If a number is even, print "Even favorite!"
+Else, print "Odd favorite!"
+
+9. Candy Countdown: 
+candies = 10
+Use a while loop to keep eating candies until 0.
+If candies == 5, print "Halfway done!"
+If candies == 1, print "Last candy!"
+After loop ends, print "All gone!"
+
+10. Secret Word Finder: 
+word = "PYTHON"
+Use a for loop to go through each letter.
+If the letter is "O", print "Found the secret letter!"
+Else, print the letter.
+When loop ends, print "Mission complete!"

@@ -1,0 +1,38 @@
+1. Counting to Ten: 
+Use a for loop to print numbers from 1 to 10.
+
+2. Hello Five Times: 
+Use a for loop to print "Hello!" five times.
+
+3. Even Numbers: 
+Use a for loop to print all even numbers between 1 and 20.
+
+4. Multiplication Table: 
+Make a variable number = 3
+Use a for loop to print its multiplication table up to 10.
+Example: 3 x 1 = 3, 3 x 2 = 6, and so on.
+
+5. Countdown: 
+Use a while loop to print numbers from 5 down to 1.
+When the loop ends, print "Blast off!"
+
+6. Name Repeater: 
+Make a variable name = "Alex"
+Use a for loop to print "Hello, Alex!" three times.
+
+7. Add Numbers: 
+Use a for loop to add numbers from 1 to 10 and print the total sum at the end.
+
+8. Collecting Stars: 
+Use a while loop.
+Start with stars = 0
+While stars is less than 5, print "Collected a star!" and add 1 to stars.
+After the loop, print "You have 5 stars!"
+
+9. Skip Number: 
+Use a for loop to print numbers from 1 to 10, but skip printing the number 5 using an if statement.
+
+10. Secret Code Letters
+Make a variable word = "PYTHON"
+Use a for loop to print each letter one by one.
+When you finish, print "Secret code complete!"

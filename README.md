@@ -153,10 +153,10 @@ echo "OPENAI_API_KEY=your_key_here" > .env
 ```
 
 ### **Docker Features**
-- ✅ **File Access**: Reads `questions.txt`, writes to `logs/` directory
+- ✅ **File Access**: Reads `data/questions.txt`, writes to `logs/` directory
 - ✅ **Security**: Non-root user, minimal attack surface
 - ✅ **Persistence**: Logs survive container restarts
-- ✅ **Easy Updates**: Edit `questions.txt` and restart
+- ✅ **Easy Updates**: Edit `data/questions.txt` and restart
 
 ### **Docker Commands**
 ```bash
@@ -181,9 +181,13 @@ For detailed Docker setup, see [DOCKER.md](DOCKER.md).
 
 ```
 tutorai/
-├── app.py              # Main application
-├── questions.txt       # Tutoring questions (Docker: read-only)
-├── view_logs.py        # Log viewer utility
+├── src/                # Source code
+│   ├── app.py          # Main application
+│   ├── logger.py       # Logging module
+│   ├── ai.py           # AI/GPT module
+│   └── view_logs.py    # Log viewer utility
+├── data/               # Data files
+│   └── questions.txt   # Tutoring questions
 ├── requirements.txt    # Python dependencies
 ├── run.sh             # Launch script
 ├── docker-run.sh      # Docker run script

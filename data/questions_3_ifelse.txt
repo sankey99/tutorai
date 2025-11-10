@@ -1,0 +1,92 @@
+1.School Day or Weekend: 
+Make a variable day = "Saturday"
+If day is "Saturday" or "Sunday":
+print "It's the weekend!"
+Else:
+print "It's a school day."
+
+2. Ice Cream Decision: 
+Make two variables: hot = True, have_money = True
+If it is hot:
+If you have money:
+print "Buy an ice cream!"
+Else:
+print "Ask a friend to share!"
+Else:
+print "Maybe have some juice instead."
+
+3. Game Level Unlock: 
+Make two variables: level = 5, has_key = True
+If level is 5 or more:
+If has_key is True:
+print "You unlocked the secret door!"
+Else:
+print "You need the key to enter."
+Else:
+print "Reach level 5 to unlock the door."
+
+4. Zoo Visit: 
+Make two variables: open_today = True, tickets_left = False
+If the zoo is open:
+If tickets_left is True:
+print "Let's go to the zoo!"
+Else:
+print "No tickets left for today."
+Else:
+print "The zoo is closed."
+
+5. Computer Time: 
+Make two variables: finished_homework = True, screen_time_left = False
+If homework is done:
+If screen_time_left is True:
+print "You can use the computer!"
+Else:
+print "Screen time is over for today."
+Else:
+print "Finish homework first!"
+
+6. Treasure Adventure: 
+Make two variables: has_map = True, has_key = True
+If has_map is True:
+If has_key is True:
+print "You opened the treasure chest!"
+Else:
+print "You found the chest but need a key."
+Else:
+print "You’re lost in the forest."
+
+7. Reading Club: 
+Make two variables: book_pages = 120, pages_read = 120
+If pages_read is equal to book_pages:
+print "You finished the book!"
+print "Great job!"
+Else:
+print "Keep reading to finish your book."
+
+8. Pizza Order: 
+Make two variables: has_money = True, shop_open = False
+If has_money is True:
+If shop_open is True:
+print "Order your favorite pizza!"
+Else:
+print "The shop is closed right now."
+Else:
+print "You need money to buy pizza."
+
+9. Rocket Launch: 
+Make two variables: fuel = 80, weather_clear = True
+If fuel is greater than or equal to 70:
+If weather_clear is True:
+print "Rocket is ready for launch!"
+Else:
+print "Wait for better weather."
+Else:
+print "Not enough fuel."
+
+10. Secret Code Game: 
+Make two variables: code = 1234, guess = 1234
+If guess equals code:
+print "Access granted!"
+print "You win!"
+Else:
+print "Wrong code! Try again."

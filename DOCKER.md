@@ -7,7 +7,8 @@ This guide explains how to run TutorAI in a Docker container with proper file ac
 ```
 tutorai/
 ├── app.py                 # Main application
-├── questions.txt          # Tutoring questions (read-only in container)
+├── data/                  # Data directory
+│   └── questions.txt      # Tutoring questions (read-only in container)
 ├── logs/                  # Log files (mounted as volume)
 ├── .env                   # Environment variables
 ├── Dockerfile             # Docker image definition
@@ -57,7 +58,7 @@ docker build -t tutorai:latest .
 # Run the container
 docker run -p 7777:7777 \
   -v $(pwd)/logs:/app/logs \
-  -v $(pwd)/questions.txt:/app/questions.txt:ro \
+  -v $(pwd)/data:/app/data:ro \
   -v $(pwd)/.env:/app/.env:ro \
   tutorai:latest
 ```
@@ -81,9 +82,9 @@ USERS=user1,user2,user3
 ACCESS_KEYS=key1,key2,key3
 ```
 
-### Questions File (questions.txt)
+### Questions File (data/questions.txt)
 
-The application reads questions from `questions.txt`. Each question should be separated by double newlines:
+The application reads questions from `data/questions.txt`. Each question should be separated by double newlines:
 
 ```
 1. Hello, Python! Write a Python program that prints:
@@ -96,7 +97,7 @@ My name is <your name>
 ## 📊 Container Features
 
 ### ✅ **File Access**
-- **Read-only**: `questions.txt` (mounted as volume)
+- **Read-only**: `data/questions.txt` (mounted as volume)
 - **Read-write**: `logs/` directory for application logs
 - **Environment**: `.env` file for configuration
 
@@ -144,8 +145,8 @@ docker ps
 
 ### **Update Questions**
 ```bash
-# Edit questions.txt
-nano questions.txt
+# Edit data/questions.txt
+nano data/questions.txt
 
 # Restart to load new questions
 docker-compose restart
@@ -172,14 +173,14 @@ docker-compose build --no-cache
 
 ### **Questions Not Loading**
 ```bash
-# Check if questions.txt exists
-ls -la questions.txt
+# Check if data/questions.txt exists
+ls -la data/questions.txt
 
 # Check file permissions
-ls -la questions.txt
+ls -la data/questions.txt
 
 # Verify file format (double newlines between questions)
-cat -A questions.txt
+cat -A data/questions.txt
 ```
 
 ### **Logs Not Writing**
@@ -205,7 +206,7 @@ services:
       - "7777:7777"
     volumes:
       - ./logs:/app/logs
-      - ./questions.txt:/app/questions.txt:ro
+      - ./data:/app/data:ro
       - ./.env:/app/.env:ro
     environment:
       - PYTHONUNBUFFERED=1
@@ -259,7 +260,7 @@ docker run -p 7777:7777 tutorai:v1.0
 If you encounter issues:
 
 1. **Check logs**: `docker-compose logs -f`
-2. **Verify files**: Ensure `questions.txt` and `.env` exist
+2. **Verify files**: Ensure `data/questions.txt` and `.env` exist
 3. **Check permissions**: Ensure `logs/` directory is writable
 4. **Rebuild**: Try `docker-compose up --build -d`
 

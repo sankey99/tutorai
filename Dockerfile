@@ -19,9 +19,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
-COPY app.py .
-COPY view_logs.py .
-COPY questions.txt .
+COPY src/ ./src/
+COPY data/ ./data/
 
 # Create logs directory with proper permissions
 RUN mkdir -p /app/logs && chmod 755 /app/logs
@@ -40,10 +39,11 @@ EXPOSE 7777
 ENV PYTHONUNBUFFERED=1
 ENV GRADIO_SERVER_NAME=0.0.0.0
 ENV GRADIO_SERVER_PORT=7777
+ENV PYTHONPATH=/app/src
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:7777/ || exit 1
 
 # Run the application
-CMD ["python", "app.py", "--host", "0.0.0.0", "--port", "7777"]
+CMD ["python", "src/app.py", "--host", "0.0.0.0", "--port", "7777"]

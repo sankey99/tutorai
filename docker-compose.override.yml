@@ -2,9 +2,4 @@ version: '3.8'
 
 services:
   tutorai:
-    command: >
-      python app.py
-      --host 0.0.0.0
-      --port 7777
-      
-      --auth
+    command: ["python", "src/app.py", "--host", "0.0.0.0", "--port", "7777", "--auth"]
